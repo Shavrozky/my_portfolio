@@ -1,0 +1,199 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-space: var(--font-space), ui-sans-serif, system-ui, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  background: #02040d;
+  color-scheme: dark;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  overflow-x: hidden;
+  font-family: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+}
+
+::selection {
+  background: rgba(34, 211, 238, 0.35);
+  color: white;
+}
+
+input,
+textarea,
+button {
+  font: inherit;
+}
+
+.font-space {
+  font-family: var(--font-space), ui-sans-serif, system-ui, sans-serif;
+}
+
+.stars-layer {
+  position: absolute;
+  inset: -12%;
+  background-image:
+    radial-gradient(circle, rgba(255, 255, 255, 0.72) 1px, transparent 1.5px),
+    radial-gradient(circle, rgba(103, 232, 249, 0.44) 1px, transparent 1.6px),
+    radial-gradient(circle, rgba(196, 181, 253, 0.34) 1px, transparent 1.7px);
+  background-repeat: repeat;
+  opacity: 0.34;
+  will-change: transform;
+}
+
+.stars-layer-one {
+  background-size: 116px 116px, 190px 190px, 280px 280px;
+  background-position: 0 0, 58px 36px, 140px 92px;
+  animation: star-drift 40s linear infinite;
+}
+
+.stars-layer-two {
+  background-size: 170px 170px, 250px 250px, 360px 360px;
+  background-position: 24px 70px, 92px 32px, 200px 160px;
+  filter: blur(0.8px);
+  opacity: 0.24;
+  animation: star-drift 65s linear infinite reverse;
+}
+
+.shooting-star {
+  position: absolute;
+  width: var(--meteor-width);
+  height: 2px;
+  top: var(--meteor-top);
+  left: var(--meteor-left);
+  border-radius: 999px;
+  transform: translate3d(0, 0, 0) rotate(-35deg);
+  transform-origin: right center;
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0),
+    rgba(125, 249, 255, 0.58),
+    rgba(255, 255, 255, 0.86)
+  );
+  box-shadow:
+    0 0 7px rgba(255, 255, 255, 0.75),
+    0 0 16px rgba(125, 249, 255, 0.58),
+    0 0 28px rgba(168, 85, 247, 0.34);
+  animation: meteor-fall var(--meteor-duration) linear infinite;
+  animation-delay: var(--meteor-delay);
+  opacity: 0;
+  will-change: transform, opacity;
+}
+
+.shooting-star::after {
+  position: absolute;
+  right: 0;
+  top: 50%;
+  width: 8px;
+  height: 8px;
+  content: "";
+  border-radius: 999px;
+  background: white;
+  box-shadow:
+    0 0 10px rgba(255, 255, 255, 0.9),
+    0 0 20px rgba(125, 249, 255, 0.68),
+    0 0 34px rgba(255, 255, 255, 0.42);
+  transform: translateY(-50%);
+}
+
+.size-13 {
+  width: 3.25rem;
+  height: 3.25rem;
+}
+
+@keyframes star-drift {
+  from {
+    transform: translate3d(0, 0, 0);
+  }
+  to {
+    transform: translate3d(-120px, 120px, 0);
+  }
+}
+
+@keyframes meteor-fall {
+  0% {
+    transform: translate3d(0, 0, 0) rotate(-35deg);
+    opacity: 0;
+  }
+
+  8% {
+    opacity: 0.72;
+  }
+
+  55% {
+    opacity: 0.72;
+  }
+
+  100% {
+    transform: translate3d(-620px, 420px, 0) rotate(-35deg);
+    opacity: 0;
+  }
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
+  50% {
+    transform: translate3d(0, -24px, 0);
+  }
+}
+
+@keyframes pulse-slow {
+  0%,
+  100% {
+    opacity: 0.55;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.9;
+    transform: scale(1.08);
+  }
+}
+
+.animate-float {
+  animation: float 8s ease-in-out infinite;
+}
+
+.animate-float-delayed {
+  animation: float 10s ease-in-out infinite;
+  animation-delay: -4s;
+}
+
+.animate-pulse-slow {
+  animation: pulse-slow 9s ease-in-out infinite;
+}
+
+.terminal-cursor {
+  animation: cursor-blink 1s steps(2, start) infinite;
+}
+
+@keyframes cursor-blink {
+  0%,
+  45% {
+    opacity: 1;
+  }
+  46%,
+  100% {
+    opacity: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
