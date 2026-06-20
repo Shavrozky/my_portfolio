@@ -4,7 +4,6 @@ import { CosmicBackground } from "@/components/cosmic-background";
 import { EducationSection } from "@/components/education-section";
 import { Footer } from "@/components/footer";
 import { HeroSection } from "@/components/hero-section";
-import { InteractiveTerminal } from "@/components/interactive-terminal";
 import { ExperienceSection } from "@/components/journey-section";
 import { LanguageProvider } from "@/lib/language-context";
 import { MusicPopup } from "@/components/music-popup";
@@ -23,7 +22,6 @@ export default function Home() {
           <MusicPopup />
           <HeroSection />
           <AboutSection />
-          <InteractiveTerminal />
           <SkillsSection />
           <ProjectsSection />
           <ExperienceSection />
