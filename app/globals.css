@@ -197,3 +197,22 @@ button {
     transition-duration: 0.01ms !important;
   }
 }
+
+@media (max-width: 639px) {
+  .stars-layer {
+    inset: -6%;
+    opacity: 0.22;
+    will-change: auto;
+  }
+
+  .stars-layer-one {
+    animation: none;
+  }
+
+  .shooting-star,
+  .animate-float,
+  .animate-float-delayed,
+  .animate-pulse-slow {
+    animation: none;
+  }
+}

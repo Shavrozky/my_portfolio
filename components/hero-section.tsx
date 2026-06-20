@@ -73,12 +73,12 @@ export function HeroSection() {
           initial={{ opacity: 0, scale: 0.92, y: 30 }}
           animate={{ opacity: 1, scale: 1, y: 0 }}
           transition={{ duration: 0.8, ease: "easeOut", delay: 0.35 }}
-          className="relative mx-auto grid min-h-[390px] w-full max-w-[520px] place-items-center overflow-visible lg:min-h-[560px]"
+          className="relative mx-auto grid min-h-[360px] w-full max-w-[520px] place-items-center overflow-hidden sm:min-h-[390px] sm:overflow-visible lg:min-h-[560px]"
         >
           <div className="absolute inset-8 z-0 rounded-full bg-[radial-gradient(circle,rgba(34,211,238,0.16),rgba(88,28,135,0.08)_42%,transparent_70%)] blur-3xl" />
-          <motion.div animate={{ rotate: 360 }} transition={{ repeat: Infinity, duration: 36, ease: "linear" }} className="absolute z-0 size-[94%] rounded-full border border-cyan-200/22 shadow-[0_0_34px_rgba(34,211,238,0.10)]" />
-          <motion.div animate={{ rotate: -360 }} transition={{ repeat: Infinity, duration: 48, ease: "linear" }} className="absolute z-0 h-[54%] w-[112%] rounded-full border border-fuchsia-200/20 shadow-[0_0_34px_rgba(217,70,239,0.09)]" />
-          <motion.div animate={{ rotate: 360 }} transition={{ repeat: Infinity, duration: 60, ease: "linear" }} className="absolute z-0 h-[70%] w-[98%] rounded-full border border-white/12" />
+          <motion.div animate={{ rotate: 360 }} transition={{ repeat: Infinity, duration: 36, ease: "linear" }} className="absolute z-0 hidden size-[94%] rounded-full border border-cyan-200/22 shadow-[0_0_34px_rgba(34,211,238,0.10)] sm:block" />
+          <motion.div animate={{ rotate: -360 }} transition={{ repeat: Infinity, duration: 48, ease: "linear" }} className="absolute z-0 hidden h-[54%] w-[112%] rounded-full border border-fuchsia-200/20 shadow-[0_0_34px_rgba(217,70,239,0.09)] sm:block" />
+          <motion.div animate={{ rotate: 360 }} transition={{ repeat: Infinity, duration: 60, ease: "linear" }} className="absolute z-0 hidden h-[70%] w-[98%] rounded-full border border-white/12 sm:block" />
 
           <motion.div
             whileHover={{ y: -6, scale: 1.015 }}
@@ -139,7 +139,7 @@ export function HeroSection() {
                   loop
                   playsInline
                   controls={false}
-                  preload="auto"
+                  preload="metadata"
                   aria-label={`${demo.title} video demo`}
                 />
               </AnimatePresence>
